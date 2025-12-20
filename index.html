@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { background: #1c1c1d; color: white; font-family: sans-serif; text-align: center; padding: 20px; }
+        input { width: 90%; padding: 15px; margin: 20px 0; border-radius: 10px; border: 1px solid #3390ec; background: #2c2c2e; color: white; }
+        button { width: 90%; padding: 15px; background: #3390ec; color: white; border: none; border-radius: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>DOXGRAM PANEL</h2>
+    <input type="text" id="target" placeholder="Введите @username">
+    <button onclick="send()">ЗАПУСТИТЬ</button>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        function send() {
+            const val = document.getElementById('target').value;
+            if (val) {
+                // Эта команда отправит текст в чат автоматически!
+                tg.sendData("Поиск объекта: " + val); 
+                tg.close();
+            }
+        }
+    </script>
+</body>
+</html>
